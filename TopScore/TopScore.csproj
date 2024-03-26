@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Support Files\Images\funGameLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Helpers\**" />
+    <Compile Remove="SQLLiteDB\**" />
+    <Compile Remove="Videos\**" />
+    <EmbeddedResource Remove="Helpers\**" />
+    <EmbeddedResource Remove="SQLLiteDB\**" />
+    <EmbeddedResource Remove="Videos\**" />
+    <None Remove="Helpers\**" />
+    <None Remove="SQLLiteDB\**" />
+    <None Remove="Videos\**" />
+    <Page Remove="Helpers\**" />
+    <Page Remove="SQLLiteDB\**" />
+    <Page Remove="Videos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Support Files\Images\funGameLogo.ico" />
+  </ItemGroup>
+	<ItemGroup>
+		<None Include="wwwroot\**">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+    <PackageReference Include="System.Management" Version="8.0.0" />
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net8.0-windows\Support Files\Images\" />
+  </ItemGroup>
+
+</Project>

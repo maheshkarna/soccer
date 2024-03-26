@@ -1,0 +1,83 @@
+﻿<Window x:Class="TopScore.SensorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TopScore"
+        mc:Ignorable="d"
+        Title="Sensor Settings" 
+        WindowStartupLocation="CenterScreen" 
+        Height="450" Width="800"
+        WindowState="Maximized" Background="LightBlue">
+    <Grid>
+        
+  <Grid.Background>
+     <ImageBrush ImageSource="{Binding darkBg}" Stretch="UniformToFill"/>
+ </Grid.Background>
+
+ <!-- Centered Grid -->
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <!-- Card-style Border -->
+            <Border Background="#edefef" BorderBrush="Gray" BorderThickness="1" CornerRadius="10" Padding="20">
+                <Grid>
+                    <Label Content="Ball Sensor Config" Foreground="#000361" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Height="50" Margin="0,5,0,0"/>
+                    <Label Content="Baud Rate" Foreground="Black" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Height="38" Width="99" FontWeight="Bold" Margin="10,60,0,0"/>
+                    <Label Content="COM Port" Foreground="Black" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Height="36" Width="93" FontWeight="Bold" Margin="10,118,0,0"/>
+
+                    <ComboBox Grid.Column="1" x:Name="BaudRate" Text="Select Baud Rate" SelectedIndex="5" VerticalAlignment="Top" Width="157" Height="28" Margin="124,65,0,0"  Grid.Row="1"  SelectedValuePath="Content"  SelectionChanged="BaudRate_SelectionChanged"  FontSize="15" FontWeight="Bold">
+                        <ComboBoxItem Content="300"  />
+                        <ComboBoxItem Content="600" />
+                        <ComboBoxItem Content="1200" />
+                        <ComboBoxItem Content="2400" />
+                        <ComboBoxItem Content="4800" />
+                        <ComboBoxItem Content="9600" />
+                        <ComboBoxItem Content="14400" />
+                        <ComboBoxItem Content="19200" />
+                    </ComboBox>
+
+
+                    <ComboBox Grid.Column="1" x:Name="ComPort" Text="Select Baud Rate" SelectedIndex="5" Grid.Row="1" SelectedValuePath="Content" Padding="0,5,0,0" VerticalAlignment="Top" Width="157" Height="28" Margin="124,122,0,0" SelectionChanged="BaudRate_SelectionChanged"   FontSize="15" FontWeight="Bold">
+                    </ComboBox>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="30" Margin="0,180,0,0">
+
+                        <Border Background="Transparent" BorderBrush="Darkblue" BorderThickness="1" CornerRadius="15" Margin="0">
+                            <Button Height="30"  Foreground="DarkBlue" Width="90" FontSize="14" FontWeight="Bold" Click="CheckConnection" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Button.Content>
+                                    Check
+                                </Button.Content>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Border>
+
+
+                        <TextBox Text="0" x:Name="hiddenId" Margin="0,0,37,75" Visibility="Hidden"/>
+
+                        <Border Background="Transparent"    BorderBrush="Green" BorderThickness="1"  CornerRadius="15" Margin="0">
+                            <Button Height="30" Width="90" Foreground="Green" FontSize="14" x:Name="SaveBtn" FontWeight="Bold" Click="Button_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <Button.Content>
+                                    Save
+                                </Button.Content>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Border>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid> 
+    </Grid>
+</Window>
