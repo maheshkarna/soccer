@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="default-src * data: blob:; style-src * 'unsafe-inline' cdvfile://*; script-src * 'unsafe-inline' 'unsafe-eval' 'unsafe-hashes' cdvfile://* blob:; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline';
+                frame-src *;" http-equiv="Content-Security-Policy">
+    <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: blob:; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: ; style-src 'self' 'unsafe-eval' 'unsafe-inline' ;">
+    
+  <!--  <title>Hello World!</title>  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/videojs/video-js.css"> -->
+  <link rel="apple-touch-icon" sizes="76x76" href="./css/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./css/assets/img/favicon.png">
+  <title>
+    Weighbridge Application
+  </title>
+  <!--   Fonts and icons     -->
+  <!-- <link href="./css/assets/js/family.css" rel="stylesheet" /> -->
+  
+  <!-- Nucleo Icons -->
+  <link href="./css/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./css/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link href="./css/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./css/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <link href="./lib/fontawesome/css/all.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/solid.css" rel="stylesheet">
+  <style type="text/css">
+    .card {
+      box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+     display: fixed;
+  /*    background-color:darkgray;*/
+      margin: 5px;
+  }
+  body{
+    background-image: url("css/images/loginBG.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This makes the background fixed */
+    background-color: rgb(209 209 209 / 70%);
+    margin-top: 38px;
+
+  }
+  .align-self-center img{
+    float: right;
+    width: 100px;
+    margin: -16px;
+  }
+
+  .fa-solid:hover {
+  animation: fa-beat 1s infinite;
+}
+.card:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s;
+}
+
+
+
+@keyframes fa-beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.align-self-center img{
+    float: right;
+    width: 100px;
+    margin: -16px;
+  }
+  .align-self-center i{
+    float: right;
+    font-size: 70px;
+  }
+
+  .fa-solid:hover {
+  animation: fa-beat 1s infinite;
+ }
+ .card {
+box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+  </style>
+</head>    
+<body class="">
+    <div class="container position-sticky z-index-sticky top-0">
+      <div class="row">
+        <div class="col-12" style="margin-top: 20%;">
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+            <div class="container pe-0">
+              <!-- <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="pages/dashboard.html">
+                LOGO
+              </a> -->
+              <div class="col-auto">
+                <div class="avatar avatar-xl position-relative">
+                  <img src="" id="logo" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                </div>
+              </div>
+              <div class="col-auto my-auto">
+                <div class="h-100">
+                  <h5 class="mb-1" id="title">
+                  
+                  </h5>
+                  <p class="mb-0 font-weight-bold text-sm" id="subTitle">
+                  
+                  </p>
+                </div>
+              </div>
+
+              <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon mt-2">
+                  <span class="navbar-toggler-bar bar1"></span>
+                  <span class="navbar-toggler-bar bar2"></span>
+                  <span class="navbar-toggler-bar bar3"></span>
+                </span>
+              </button>
+              <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+                  <li class="nav-item">
+     
+                  </li>
+                  <li class="nav-item">
+       
+                  </li>
+                  <li class="nav-item">
+      
+                  </li>
+                  <li class="nav-item">
+                  
+                  </li>
+                </ul>
+                <ul class="navbar-nav d-lg-block d-none">
+                  <li class="nav-item" onclick="clearItem()">
+                    <a class="nav-link me-2 " href="home.html">
+                      <i class="fa-solid fa-circle-left" style="font-size: xx-large;"></i> 
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+      </div>
+    </div>
+    
+<section>
+  <div class="container">
+    
+    <div class="modal fade" id="login_pop">
+      <div class="modal-dialog largmodal shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="modal-content sub-bg">
+          <div class="modal-header subs-header">
+            <!-- You can add a title or any other content for the header here -->
+          Supper Admin Login
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" id="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            </div>
+            <!-- You can add any other content or form elements here as needed -->
+            <br>
+            <button class="btn btn-danger"  onclick="close_pop()">Close</button>
+            <button class="btn btn-success" style="float: right;" onclick="login()">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  <div class="row">
+      <div class="col-sm-6 col-md-6 mb-2">
+        <a href="cameraSettingsScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <!-- <img src="css/images/userList.jpg"> -->
+                 <i class="fa-solid fa-video"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>WBG Cameras Settings </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+      <!-- <div class="col-sm-6 col-md-6 mb-2" >
+       <a href="bmrCamraSettings.html">
+         <div class="card overflow-hidden">
+           <div class="card-content">
+             <div class="card-body cleartfix">
+               <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <i class="fa-solid fa-video"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>BBR Cameras Settings </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </a>
+      </div> -->
+
+      <div class="col-sm-6 col-md-6 mb-2">
+        <a href="fieldSettingsScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <!-- <img src="css/images/userList.jpg"> -->
+                 <i class="fa-solid fa-sliders"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>WBG  Field Settings </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+
+      <!-- <div class="col-sm-6 col-md-6 mb-2">
+        <a href="boombarrierFieldSettings.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <i class="fa-solid fa-sliders"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>BBR Field Settings </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </a>
+      </div> -->
+
+      <div class="col-sm-6 col-md-6 mb-2">
+        <a href="masterFieldsList.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <!-- <img src="css/images/userList.jpg"> -->
+                 <i class="fa-solid fa-gears"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>WBG Master Settings</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+      
+      <div class="col-sm-6 col-md-6 mb-2">
+        <a href="navbarSettings.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <!-- <img src="css/images/userList.jpg"> -->
+                 <i class="fa-solid fa-gears"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>Navbar Setttings</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+
+      
+
+      <!-- <div class="col-sm-6 col-md-6 mb-2">
+        <a href="bmrMasterSettingsScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <i class="fa-solid fa-gears"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>BBR Master Settings </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </a>
+      </div> -->
+    
+      <!-- <div class="col-sm-6 col-md-6 mb-2">
+        <a href="#" id="download">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <i class="fa-solid fa-database"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>Database Backup </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div> -->
+
+      
+
+      <div class="col-sm-6 col-md-6 mb-2">
+       <a href="rseportHeaderScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <i class="fa-solid fa-print"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>Printer Settings</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </a>
+      </div>
+
+      <div class="col-sm-6 col-md-6 mb-2" onclick="OtherSettings()" id="OtherTab">
+        <a href="#">
+          <div class="card overflow-hidden">
+            <div class="card-content">
+              <div class="card-body cleartfix">
+                <div class="media align-items-stretch">
+                  <div class="align-self-center">
+                   <i class="fa-solid fa-bars-progress"></i>
+                  </div> 
+                  <div class="align-self-center">
+                    <h2>Other Settings</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         </a>
+        </div>
+
+    <div class="col-sm-6 col-md-6 mb-2" id="serialPortTab" style="display: none;">
+      <a href="serialPortScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 <i class="fa-solid fa-bars-progress"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h2>Serial Ports Settings</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </a>
+      </div>
+
+      <div class="col-sm-6 col-md-6 mb-2" id="FilePathTab" style="display: none;">
+        <a href="filePathSetting.html">
+          <div class="card overflow-hidden">
+            <div class="card-content">
+              <div class="card-body cleartfix">
+                <div class="media align-items-stretch">
+                  <div class="align-self-center">
+                   <i class="fa-solid fa-bars-progress"></i>
+                  </div> 
+                  <div class="align-self-center">
+                    <h2>File Path Settings</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         </a>
+      </div>
+
+      <div class="col-sm-6 col-md-6 mb-2" id="subExtend" style="display: none;">
+        <a href="expiredScreen.html">
+          <div class="card overflow-hidden">
+            <div class="card-content">
+              <div class="card-body cleartfix">
+                <div class="media align-items-stretch">
+                  <div class="align-self-center">
+                   <i class="fa-solid fa-bars-progress"></i>
+                  </div> 
+                  <div class="align-self-center">
+                    <h2>Subscription Update</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         </a>
+      </div>
+    </div>
+  </div>
+      </section>
+   
+    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+  </div>
+  </body>
+  <script src="./lib/jquery/jquery-3.6.3.min.js"></script>
+  <!-- <script src="./lib/bootstrap/js/bootstrap.min.js"></script> -->
+  <script src="./css/assets/js/core/popper.min.js"></script>
+  <script src="./css/assets/js/core/bootstrap.min.js"></script>
+  <script src="./css/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./css/assets/js/plugins/smooth-scrollbar.min.js"></script>
+
+<script src="./css/assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+
+<script src="./lib/videojs/video.min.js"></script>
+<script src="./css/assets/js/42d5adcbca.js" crossorigin="anonymous"></script>
+<script src="./js/database.js"></script>
+<script src="./js/general.js"></script>
+<script src="./js/db/dateCheckRepo.js"></script>
+
+<script src="./js/db/customerTables.js"></script>
+
+<script src="./js/db/navbarSettingsRepo.js"></script>
+<script src="./js/navbarSettings.js"></script>
+
+
+<script>
+$(document).ready(function(){
+  navbarValues()
+
+
+  // localStorage.removeItem('spLog');
+if(localStorage.getItem('spLog') != null && localStorage.getItem('spLog') == 'active'){
+  document.getElementById('serialPortTab').style.display = "block";
+  document.getElementById('FilePathTab').style.display = "block";
+  document.getElementById('subExtend').style.display = "block";  
+}
+});
+
+  const saveButton = document.getElementById("download");
+ // add a click event listener to the button
+ saveButton.addEventListener("click", function() {
+  // replace "path/to/folder" and "filename.txt" with the actual path and filename of your file
+  const fileUrl = "www/database/1";
+  
+  // create an anchor element with the download attribute
+  const link = document.createElement("a");
+  link.setAttribute("href", fileUrl);
+  link.setAttribute("download", "");
+  // simulate a click on the anchor element
+  link.click();
+});
+
+
+
+function navbarValues(){
+  $.when(
+        app.database.tables.navbar.checknavbarData()
+      ).done(function (data) {   
+        console.log(data); 
+        if(data == null || data.length == 0){
+            app.database.tables.navbar.insertData();
+        }else{
+            document.getElementById("title").innerHTML = data[0].TITLE;
+            document.getElementById("subTitle").innerHTML = data[0].SUBTITLE;
+            document.getElementById("logo").src = data[0].LOGO;
+        }   
+      });  
+   }
+
+
+   function OtherSettings(){
+      $('#login_pop').modal('show');
+    }
+  
+    function clearItem(){
+      if(localStorage.getItem('spLog') == 'active'){
+        localStorage.removeItem('spLog');
+      }
+    }
+
+    function close_pop(){
+      $('#login_pop').modal('hide');
+    }
+
+    function login(){
+      let username = $('#username').val();
+      let password = $('#password').val();
+      
+      $.when(
+        app.database.tables.navbar.checkAdminLogin(username,password)
+       ).done(function(data){ 
+        if(data.length == 1){
+          $('#login_pop').modal('hide');
+          document.getElementById('serialPortTab').style.display = "block";
+          document.getElementById('FilePathTab').style.display = "block";
+          document.getElementById('subExtend').style.display = "block";  
+          localStorage.setItem('spLog','active');
+        }
+      });
+    }
+</script>
+
+</html> 

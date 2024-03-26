@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="default-src * data: blob:; style-src * 'unsafe-inline' cdvfile://*; script-src * 'unsafe-inline' 'unsafe-eval' 'unsafe-hashes' cdvfile://* blob:; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline';
+                frame-src *;" http-equiv="Content-Security-Policy">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: blob:; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: ; style-src 'self' 'unsafe-eval' 'unsafe-inline' ;">
+    <title>Create Logins</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/videojs/video-js.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create Logins</h1>
+        <div class="row">
+          <div class="card col-md-6" style="padding-left:40px; padding-right:40px; margin-bottom:10px" >
+    <form>
+  <!-- Email input -->
+  <div class="form-outline mb-4" style="margin-bottom: 20px">
+    <label class="form-label" for="username">Username</label>
+    <input type="text" id="username" class="form-control" />
+     <input type="hidden" id="loginId" class="form-control" />
+
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4" style="margin-bottom: 20px">
+     <label class="form-label" for="password">Password</label>
+    <input type="text" id="password" class="form-control" /> 
+  </div>
+  <!-- 2 column grid layout for inline styling -->
+  <!-- Submit button -->
+  <div id="Savebutton">
+  <button type="submit" id="createLogin" class="btn btn-primary btn-block mb-4">Create</button>
+  <button type="submit" id="updateLogin" style="display: none;" class="btn btn-primary btn-block mb-4">Update</button>
+  </div>
+  <!-- Register buttons -->
+  </form>
+  </div>
+    <div class="card col-md-6" style="padding-left:40px; padding-right:40px">
+      <table class="table">
+     <thead class="bg-primary">
+      <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Username</th>
+      <th scope="col">Password</th>
+      <th scope="col">Actions</th>
+     </tr>
+    </thead>
+       <tbody id="loginsTableBody">
+    
+   </tbody>
+  </table>
+  </div>         
+ </div>
+</div>
+</body>
+<script src="./lib/jquery/jquery-3.6.3.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/videojs/video.min.js"></script>
+<script src="./js/database.js"></script>
+
+<script src="./js/general.js"></script>
+<script src="./js/db/dateCheckRepo.js"></script>
+
+<script src="./js/db/customerTables.js"></script>
+<script src="./js/db/taskRepository.js"></script>
+<script src="./js/creatLogins.js"></script>
+</html> 

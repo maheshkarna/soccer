@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="default-src * data: blob:; style-src * 'unsafe-inline' cdvfile://*; script-src * 'unsafe-inline' 'unsafe-eval' 'unsafe-hashes' cdvfile://* blob:; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline';
+                frame-src *;" http-equiv="Content-Security-Policy">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: blob:; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: ; style-src 'self' 'unsafe-eval' 'unsafe-inline' ;">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/videojs/video-js.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-end">
+
+            <a href="creatLogins.html" class="btn btn-primary">Create logins</a>
+
+        </div>
+        <h1>Todo List CURD operations</h1>
+        <div class="row">
+            <div class="col-12">
+                <button type="button" id="btnAddTask" class="btn btn-primary">Add
+                    Task</button>
+            </div>
+        </div>
+        <div class="row" id="divRowList">
+
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button type="button" id="btnShowVideoStream" class="btn btn-primary">Show Video</button>
+            </div>
+            <div class="col-6">
+                <button type="button" id="btnCaptureImage" class="btn btn-primary">Capture Image</button>
+            </div>
+            <div class="col-12">
+                <video id='hls-example' class="video-js vjs-default-skin" width="800" height="600" controls
+                    preload="auto" data-setup='{}'>
+                    <!-- <source type="application/x-mpegURL" src="http://localhost:8686//temp/output.m3u8"> -->
+                </video>
+            </div>
+            <div class="col-12">
+                <img id="imgVideoFile" src="" />
+            </div>
+        </div>
+    </div>
+    <input type="text" id="testRead" name="testRead" value="">
+    <a href="index.html" >back</a>
+</body>
+<script src="./lib/jquery/jquery-3.6.3.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/videojs/video.min.js"></script>
+<script src="./js/database.js"></script>
+<script src="./js/general.js"></script>
+<script src="./js/db/customerTables.js"></script>
+<script src="./js/db/taskRepository.js"></script>
+<script src="./js/index2.js"></script>
+<script src="./js/serialHelper.js"></script>
+<script src="./js/socket.io.js"></script>
+<script>
+// $(document).ready(function () {
+//   // app.serialHelper.readFromSerialPort();
+//   $.ajax({
+//     url: "http://localhost:8686/serialSend",
+//     type: "GET",
+//     cache: false,
+//     //   dataType: "json", // added data type
+//     success: function (res) {
+//       console.log(res);
+//     },
+//   });
+// });
+
+// let socket;
+// $(document).ready(function () {
+//   socket = io.connect("http://localhost:3000");
+// });
+
+// $(document).ready(function () {
+//   console.log("trigger socket connection");
+//   alert("test");
+//   socket.emit("message", "Hello, server!");
+//   socket.on("message", (message) => {
+    
+//     console.log(`Message from server: ${message}`);
+//     document.getElementById("testRead").value= message;
+//   });
+// });
+
+</script>
+
+</html>

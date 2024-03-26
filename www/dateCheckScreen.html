@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="default-src * data: blob:; style-src * 'unsafe-inline' cdvfile://*; script-src * 'unsafe-inline' 'unsafe-eval' 'unsafe-hashes' cdvfile://* blob:; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline';
+                frame-src *;" http-equiv="Content-Security-Policy">
+    <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: blob:; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: ; style-src 'self' 'unsafe-eval' 'unsafe-inline' ;">
+    
+  <!--  <title>Hello World!</title>  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/videojs/video-js.css"> -->
+  <!-- <link rel="apple-touch-icon" sizes="76x76" href="./css/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./css/assets/img/favicon.png"> -->
+  <title>
+    Weighbridge Application
+  </title>
+  <!--   Fonts and icons     -->
+  <!-- <link href="./css/assets/js/family.css" rel="stylesheet" /> -->
+  
+  <!-- Nucleo Icons -->
+  <link href="./css/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./css/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link href="./css/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./css/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  
+  <link href="./lib/fontawesome/css/all.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/solid.css" rel="stylesheet">
+ 
+  <style>
+    .zoom-in-zoom-out {
+  animation: zoom-in-zoom-out 3s ease-out infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+  </style>
+</head>    
+<body class="">
+    <div class="container position-sticky z-index-sticky top-0">
+      <div class="row">
+        <div class="col-12" style="margin-top: 20%;">
+          <!-- Navbar -->
+        
+          <!-- End Navbar -->
+        </div>
+      </div>
+    </div>
+     <section>
+       <div class="container">
+        <div class="modal fade" id="susbc-form">
+          <div class="modal-dialog shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="modal-content sub-bg">
+              
+              <div class="modal-body">
+                <div class="text-center ">
+                  <h4 class="shadow p-3 mb-3">Extend Subscription</h4>
+                  
+                  <div class="row">
+                    <div class="log">
+                      <table width="100%">
+                        <tr>
+                          <td style="text-align: end; width: 40%;">
+                            Username &nbsp;
+                          </td>
+                          <td style="text-align: start; width: 60%;">
+                            <input type="text" value="" id="username" name="username" class="form-control" style="width: 80%;">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="text-align: end; width: 40%;">
+                            Password &nbsp; 
+                          </td>
+                          <td style="text-align: start; width: 60%;">
+                            <input type="password"  value="" id="password" name="password" class="form-control" style="width: 80%;">
+                          </td>
+                        </tr>
+                         <tr>
+                          <td colspan="2">
+                            &nbsp;
+                          </td>
+                        </tr>
+                      </table>  
+                    </div>
+                    
+                    <div class="row RegKey" style="display: none;">
+                      <input type="text" class="form-control " readonly="true" placeholder="" style="margin-left:10px;"  name="encMachineId" id="encMachineId" >
+                      <input type="text" class="form-control " placeholder="Enter New Key" style="margin-left:10px; margin-top: 20px;"  name="newRegisterKey" id="newRegisterKey" >  
+                      <label id="registaionKeyError" class="text-danger"></label>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-2" >
+                  <div class="col-md-2">  
+                  </div> 
+                  <div class="col-md-8">
+            
+                      <button class="btn btn-dark text-center"  id="logButton" style="float: right;"  onclick="CheckLogin()">Login</button>
+                 
+                
+                      <button class="btn btn-dark text-center" id="updateButton" style="float: right; display: none;"  onclick="updateKey()">Update Key</button>
+                      
+                  
+                    <button class="btn btn-danger text-center" id="clossbtn" onclick="closePop()" >Close</button></div>
+                  <div class="col-md-2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="row">
+        <div class="zoom-in-zoom-out">
+            <h3 align="center">OOP's...! <b class="text-danger">You have changed the Local System Date<b><br></h3>            
+        </div>
+        <h5></h5>
+        <!-- <h6 align="center">Email: spodiastech@gmail.com, &nbsp; Mobile No : 8712906926</h5> 
+
+         <h6 align="center"> <a  href="#"  id="openPop" onclick="openPop()">Click To Login</a></h6> -->
+       </div>
+    </div>
+    <!-- Button to open the modal -->
+
+  </section>
+
+ 
+    
+  </body>
+  <script src="./lib/jquery/jquery-3.6.3.min.js"></script>
+  <!--   <script src="./lib/bootstrap/js/bootstrap.min.js"></script> -->
+  
+  <!-- <link href="./css/assets/css/toastr.css" rel="stylesheet"/>
+  <script src="./css/assets/js/toastr.js"></script>
+  <script src="./css/assets/js/core/popper.min.js"></script>
+  <script src="./css/assets/js/core/bootstrap.min.js"></script>
+  <script src="./css/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./css/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./css/assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+
+  <script src="./lib/videojs/video.min.js"></script>
+  <script src="./css/assets/js/42d5adcbca.js" crossorigin="anonymous"></script>
+  <script src="./js/database.js"></script>
+  <script src="./js/general.js"></script>
+  <script src="./js/db/customerTables.js"></script>
+  <script src="./js/db/registrationRepo.js"></script>
+  <script src="./js/login.js"></script> -->
+  <script>
+    
+  </script>
+  
+</html> 

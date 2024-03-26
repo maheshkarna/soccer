@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="default-src * data: blob:; style-src * 'unsafe-inline' cdvfile://*; script-src * 'unsafe-inline' 'unsafe-eval' 'unsafe-hashes' cdvfile://* blob:; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline';
+                frame-src *;" http-equiv="Content-Security-Policy">
+    <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: blob:; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: ; style-src 'self' 'unsafe-eval' 'unsafe-inline' ;">
+    
+  <!--  <title>Hello World!</title>  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/videojs/video-js.css"> -->
+  <link rel="apple-touch-icon" sizes="76x76" href="./css/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./css/assets/img/favicon.png">
+  <title>
+    Weighbridge Application
+  </title>
+  <!--   Fonts and icons     -->
+  <!-- <link href="./css/assets/js/family.css" rel="stylesheet" /> -->
+  
+  <!-- Nucleo Icons -->
+  <link href="./css/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./css/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link href="./css/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./css/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <link href="./lib/fontawesome/css/all.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/solid.css" rel="stylesheet">
+
+  <style type="text/css">
+    .card {
+      box-shadow: 0 20px 27px 0 rgb(0 0 0 / 4%);
+     display: fixed;
+  /*    background-color:darkgray;*/
+      margin: 5px;
+  }
+  body{
+    background-image: url("css/images/loginBG.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This makes the background fixed */
+    background-color: rgb(209 209 209 / 70%);
+    margin-top: 38px;
+  }
+  
+  .align-self-center img{
+    float: right;
+    width: 100px;
+    margin: -16px;
+  }
+
+  .align-self-center i{
+    float: right;
+    font-size: 70px;
+  }
+
+  .fa-solid:hover {
+  animation: fa-beat 1s infinite;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s;
+}
+
+@keyframes fa-beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.fa-solid:hover {
+  animation: fa-beat 1s infinite;
+}
+.card {
+box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+ 
+  </style>
+</head>     
+<body class="">
+    <div class="container position-sticky z-index-sticky top-0">
+      <div class="row">
+        <div class="col-12" style="margin-top: 20%;">
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+            <div class="container pe-0">
+              <!-- <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="pages/dashboard.html">
+                LOGO
+              </a> -->
+              <div class="avatar avatar-xl position-relative">
+                <img src="" id="logo" alt="profile_image" style="border-radius: 2.75rem !important;" class="w-100 border-radius-lg shadow-sm">
+              </div>
+              <div class="col-auto my-auto">
+                <div class="h-100">
+                  <h5 class="mb-1" id="title">
+                    <!-- HINDUSTAN AGRO PRODUCTS LIMITED  css/assets/img/bruce-mars.jpg-->
+                  </h5>
+                  <p class="mb-0 font-weight-bold text-sm" id="subTitle">
+                   <!-- Machavaram -->
+                  </p>
+                </div>
+              </div>
+
+              <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon mt-2">
+                  <span class="navbar-toggler-bar bar1"></span>
+                  <span class="navbar-toggler-bar bar2"></span>
+                  <span class="navbar-toggler-bar bar3"></span>
+                </span>
+              </button>
+              <div class="collapse navbar-collapse" id="navigation">
+                <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+                  <li class="nav-item">
+     
+                  </li>
+                  <li class="nav-item">
+       
+                  </li>
+                  <li class="nav-item">
+      
+                  </li>
+                  <li class="nav-item">
+                    <!-- <a class="nav-link me-2 " href="home.html">
+                      <i class="fas fa-key opacity-6 text-dark me-1"></i>
+                        Back
+                    </a> -->
+                  </li>
+                </ul>
+                <ul class="navbar-nav d-lg-block d-none">
+                    <li class="nav-item">
+                      <a class="nav-link me-2 " href="home.html">
+                        <i class="fa-solid fa-circle-left" style="font-size: xx-large;"></i> 
+                    </a>
+                    </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+      </div>
+    </div>
+    
+  
+     
+      <section>
+      <div class="container">
+      <div class="row">
+      <div class="col-sm-6 col-md-6 mb-2">
+        <a href="itemReportScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                  <!-- <img src="css/images/user.jpg"> -->
+                  <i class="fa-regular fa-rectangle-list"></i>
+                </div>
+                <div class="align-self-center">
+                  <h1>Item Report</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+  
+
+      <div class="col-sm-6 col-md-6 mb-2">
+        <a href="partyReportScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                  <!-- <img src="css/images/user.jpg"> -->
+                  <i class="fa-solid fa-house-user"></i>
+                </div>
+                <div class="align-self-center">
+                  <h1>Party Report</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+ 
+      <div class="col-sm-6 col-md-6 mb-2">
+        <a href="vehicleReportScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                  <!-- <img src="css/images/user.jpg"> -->
+                  <i class="fa-solid fa-truck"></i>
+                </div>
+                <div class="align-self-center">
+                  <h1>Vehicle Report</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+
+
+      <!-- <div class="col-sm-6 col-md-6 mb-2">
+        <a href="agentReportScreen.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                 
+                  <i class="fa-solid fa-user-group"></i>
+                </div>
+                <div class="align-self-center">
+                  <h1>Agent Report</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div> -->
+
+      <div class="col-sm-6 col-md-6 mb-2">
+        <a href="allReport.html">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+                  <!-- <img src="css/images/user.jpg"> -->
+                  <i class="fa-solid fa-scale-unbalanced-flip"></i>
+                </div>
+                <div class="align-self-center">
+                  <h1>All Report</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+
+      <!-- <div class="col-sm-6 col-md-6 mb-2">
+        <a href="#">
+        <div class="card overflow-hidden">
+          <div class="card-content">
+            <div class="card-body cleartfix">
+              <div class="media align-items-stretch">
+                <div class="align-self-center">
+               
+                 <i class="fa-solid fa-map-location"></i>
+                </div> 
+                <div class="align-self-center">
+                  <h1>City/State Report</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div> -->
+    </div>
+  </div>
+
+      </section>
+   
+    
+    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+        
+        </div>
+ 
+    
+  </body>
+  <script src="./lib/jquery/jquery-3.6.3.min.js"></script>
+<!--   <script src="./lib/bootstrap/js/bootstrap.min.js"></script> -->
+  <script src="./css/assets/js/core/popper.min.js"></script>
+  <script src="./css/assets/js/core/bootstrap.min.js"></script>
+  <script src="./css/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./css/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./css/assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+
+<script src="./lib/videojs/video.min.js"></script>
+<script src="./css/assets/js/42d5adcbca.js" crossorigin="anonymous"></script>
+<script src="./js/database.js"></script>
+
+<script src="./js/general.js"></script>
+<script src="./js/db/dateCheckRepo.js"></script>
+
+<script src="./js/db/customerTables.js"></script>
+<script src="./js/db/navbarSettingsRepo.js"></script>
+<script src="./js/navbarSettings.js"></script>
+
+<script>
+  
+$(document).ready(()=>{
+  navbarValues();
+});
+
+
+function navbarValues(){
+  $.when(
+            app.database.tables.navbar.checknavbarData()
+          ).done(function (data) {   
+            console.log(data); 
+            if(data == null || data.length == 0){
+                app.database.tables.navbar.insertData();
+            }else{
+                document.getElementById("title").innerHTML = data[0].TITLE;
+                document.getElementById("subTitle").innerHTML = data[0].SUBTITLE;
+                document.getElementById("logo").src = data[0].LOGO;
+            }   
+          });  
+  }
+</script>
+</html> 

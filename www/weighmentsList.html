@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="default-src * data: blob:; style-src * 'unsafe-inline' cdvfile://*; script-src * 'unsafe-inline' 'unsafe-eval' 'unsafe-hashes' cdvfile://* blob:; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline';
+                frame-src *;" http-equiv="Content-Security-Policy">
+    <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' data: blob:; script-src 'self' 'unsafe-eval' 'unsafe-inline' blob: ; style-src 'self' 'unsafe-eval' 'unsafe-inline' ;">
+    
+  <!--  <title>Hello World!</title>  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/videojs/video-js.css"> -->
+  <link rel="apple-touch-icon" sizes="76x76" href="./css/assets/img/apple-icon.png">
+  <script src="css/assets/css/fontawesome-free-6.4.0-web/js/all.min.js"></script>
+ 
+  <link rel="icon" type="image/png" href="./css/assets/img/favicon.png">
+  <title>
+    Weighbridge Application
+  </title>
+  <!--   Fonts and icons     -->
+  <!-- <link href="./css/assets/js/family.css" rel="stylesheet" /> -->
+  
+  <!-- Nucleo Icons -->
+  <link href="./css/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="./css/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link href="./css/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="./css/assets/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+  <link href="./lib/fontawesome/css/all.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/fontawesome.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/brands.css" rel="stylesheet">
+  <link href="./lib/fontawesome/css/solid.css" rel="stylesheet">
+
+  <style type="text/css">
+    @media (min-width: 1200px){
+  .sidenav.fixed-start~.main-content {
+      margin-left: 5.125rem;
+      margin-right: 5rem;
+  }
+  }
+  .tabcontent{
+    display: none;
+        }
+    .mt-n6 {
+    margin-top: -5rem !important;
+     }
+    .mx-4 {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    } 
+   
+.fa-solid:hover {
+  animation: fa-beat 1s infinite;
+}
+
+@keyframes fa-beat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+  .fa-solid:hover {
+  animation: fa-beat 1s infinite;
+ }
+
+ 
+.search-box {
+  position: relative;
+}
+
+.search-box input[type="text"] {
+  padding-right: 40px; /* adjust the value to fit the icon size */
+}
+
+.search-box a {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* adjust the value to position the icon */
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: #f5f5f5; /* add your desired background color here */
+  padding: 5px; /* add some padding to make it look nicer */
+  border-radius: 5px; /* add some border-radius to make it look nicer */
+}
+.icon-Image{
+  height: 18px;
+  width: 25px;
+  margin-right: 5px;
+}
+ 
+/* modal Style */
+.sub-bg {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		}
+		.subs-header{
+		padding-top: 0px;
+		border-bottom: 0px;
+		}
+.close:not(:disabled):not(.disabled):focus, .close:not(:disabled):not(.disabled):hover {
+    outline: none;
+   }
+   /* modal Style End*/
+  </style>
+
+</head>    
+<body class="g-sidenav-show bg-gray-100">
+
+  <!-- MODAL POP UP START -->
+  <div class="modal fade" id="susbc-form">
+    <div class="modal-dialog shadow-lg p-3 mb-5 bg-white rounded">
+      <div class="modal-content sub-bg">
+        <div class="modal-header subs-header">
+        </div>
+        <div class="modal-body">
+          <div class="text-center ">
+            <h4 class="shadow p-3 mb-3">Do You Want To Print Weighment Slip</h4>
+            <input type="hidden" name="PrintSlipNo" id="PrintSlipNo">
+            <input type="hidden" id="wtStatus" name="wtStatus">
+            <div class="row">
+            <div class="form-check form-switch ps-0">
+              <table width="100%">
+                <tr>
+                  <td style="text-align: end; width: 50%;">
+                    Number Of Copys :
+                  </td>
+                  <td style="text-align: start; width: 50%;">
+                    <input type="number" value="" id="noOfCopys" name="noOfCopys" class="form-control" style="width: 40%;">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: end; width: 50%;">
+                    Print With Images :
+                  </td>
+                  <td style="text-align: start; width: 50%;">
+                  
+               <input class="form-check-input ms-auto" type="checkbox" id="vahicleImage" onchange="printCopies()" name="vahicleImage" style="margin-top: 20px;">
+               <label class="form-check-label text-body ms-3 text-truncate w-80 mb-0" for="flexSwitchCheckDefault"></label>
+                  </td>
+                </tr>
+              </table>  
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">  
+            </div> 
+            <div class="col-md-8">  <button class="btn btn-dark text-center" style="float: right;" onclick="printRecipt()">Yes, Print</button>
+              <button class="btn btn-danger text-center" onclick="showEntryList()" >Not Now</button></div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MODAL POP UP END -->
+  
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main" style="display: none">
+    </aside>
+    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
+      <!-- Navbar -->
+      <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
+        <div class="container-fluid py-1">
+          
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="container-fluid">
+        <div class="page-header min-height-100 ">
+          <span class="mask bg-gradient-primary opacity-6"></span>
+        </div>
+        <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+          <div class="row gx-4">
+           
+          <div class="col-auto">
+            <div class="avatar avatar-xl position-relative">
+              <img src="" id="logo" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+            </div>
+          </div>
+          <div class="col-auto my-auto" >
+            <div class="h-100">
+              <h5 class="mb-1" id="title">
+             
+              </h5>
+              <p class="mb-0 font-weight-bold text-sm" id="subTitle">
+         
+              </p>
+            </div>
+          </div>
+          
+            <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+              <div class="nav-wrapper position-relative end-0">
+                <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                  
+                  <li>
+                    <a style="font-size: x-small; margin-left:80px " title="Go Back" href="home.html" class="btn btn-dark">Home</a>
+                  </li>
+                  <li style="margin-left:20px;">                       
+                    <a style=" font-size: x-small;" title="Go Back" href="weighmentScreen.html" class="btn btn-dark">New</a>
+                   
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col-12 col-xl-12">
+            <div class="card mb-4">
+              <div class="card-header pb-0">
+                <div class="row">
+                  <div class="col-md-9">
+                    <h5>Weighments List</h5>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="search-box">
+                      <input type="text" class="form-control" placeholder="Type here..." id="search" name="search" onkeyup="seach()">
+                      <a onclick="seach()"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive" style="height: 400px; overflow-y: auto;">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase  text-xs font-weight-bolder">S.No</th>
+                      
+                        <th class="text-uppercase  text-xs font-weight-bolder">Slip Number</th>
+                        <th class="text-uppercase  text-xs font-weight-bolder ps-1">Vehile Number</th>
+                        <th class="text-center text-uppercase  text-xs font-weight-bolder">Meterial</th>
+                        <!-- <th class="text-center text-uppercase  text-xs font-weight-bolder">Party Name</th>
+                        <th class="text-center text-uppercase  text-xs font-weight-bolder">Gross Wt</th>
+                        <th class="text-center text-uppercase  text-xs font-weight-bolder">Tare Wt</th> -->
+                        <th class="text-center text-uppercase  text-xs font-weight-bolder">Net Wt</th>
+                        <th class="text-center text-uppercase  text-xs font-weight-bolder">Gross Time</th>
+                        <th class="text-center text-uppercase  text-xs font-weight-bolder">Tare Time</th>
+                        <th class="text-uppercase  text-xs font-weight-bolder">Weighment Status</th>
+                        <th class="text-center text-uppercase  text-xs font-weight-bolder">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableBody">  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer pt-3  ">
+          <div class="container-fluid">
+            <div class="row align-items-center justify-content-lg-between">
+              <div class="col-lg-12 mb-lg-0 mb-4">
+                <div class="copyright text-center text-sm text-muted text-lg-start">
+                  © <script>
+                    document.write(new Date().getFullYear())
+                  </script>,
+                  made with 
+                  <a href="#" class="font-weight-bold" target="_blank">Spondias Private Limited</a>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script>
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+      }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+  </body>
+<script src="./lib/jquery/jquery-3.6.3.min.js"></script>
+<link href="./css/assets/css/toastr.css" rel="stylesheet"/>
+<script src="./css/assets/js/toastr.js"></script>
+<script src="./css/assets/js/sweetalert.js"></script>
+<script src="./css/assets/js/core/popper.min.js"></script>
+<script src="./css/assets/js/core/bootstrap.min.js"></script>
+<script src="./css/assets/js/plugins/perfect-scrollbar.min.js"></script>
+<script src="./css/assets/js/plugins/smooth-scrollbar.min.js"></script>
+<script src="./css/assets/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+<script src="./lib/videojs/video.min.js"></script>
+<script src="./css/assets/js/42d5adcbca.js" crossorigin="anonymous"></script>
+<script src="./js/database.js"></script>
+<script src="./js/general.js"></script>
+<script src="./js/db/dateCheckRepo.js"></script>
+
+<script src="./js/db/customerTables.js"></script>
+<script src="./js/weighment.js"></script>
+<script src="./js/db/weigmentRepository.js"></script>
+<script src="./js/db/navbarSettingsRepo.js"></script>
+<script src="./js/navbarSettings.js"></script>
+<script>
+    $(document).ready(() => {   
+      let sVal = "";
+      app.weighments.getWeighmentsList(sVal);   
+    navbarValues();
+
+  });
+
+  // function printEdit(slipNo){
+   
+  //   app.weighments.printRecipt(slipNo);
+  // }
+
+function DeleteRecById(rid){
+        if (confirm("Are you sure you want to delete this Item?")) {
+            let slipId = rid;
+             app.weighments.DeleteRecordById(slipId);
+            } else {
+            return;
+            }  
+        // alert(rid);
+    }
+
+ function seach(){
+    let sVal = $('#search').val();
+    app.weighments.getWeighmentsList(sVal);
+  }
+
+ function printConfirmation(alpNo,status){
+    $('#susbc-form').modal('show');
+    document.getElementById("PrintSlipNo").value = alpNo;
+    document.getElementById("wtStatus").value = status;
+    if (status === 0 && $("#vahicleImage").is(":checked")){
+      document.getElementById("noOfCopys").value = 2;
+    }else if(status === 1 && $("#vahicleImage").is(":checked")){
+      document.getElementById("noOfCopys").value = 1;
+    }else{
+      document.getElementById("noOfCopys").value = 3;
+    }
+ }
+
+ function printCopies(){
+ 
+  let status = $('#wtStatus').val();
+  if (status == 0 && $("#vahicleImage").is(":checked")){
+      document.getElementById("noOfCopys").value = 2;
+    }else if(status == 1 && $("#vahicleImage").is(":checked")){
+      document.getElementById("noOfCopys").value = 1;
+    }else{
+      document.getElementById("noOfCopys").value = 3;
+    }
+ }
+
+ function printRecipt(){
+      $('#susbc-form').modal('hide');
+       let slpId = $('#PrintSlipNo').val();
+       app.weighments.printRecipt(slpId);  
+ }
+ function showEntryList(){
+  $('#susbc-form').modal('hide');
+ }
+
+
+    
+ function navbarValues(){
+  $.when(
+            app.database.tables.navbar.checknavbarData()
+          ).done(function (data) {   
+            console.log(data); 
+            if(data == null || data.length == 0){
+                app.database.tables.navbar.insertData();
+            }else{
+                document.getElementById("title").innerHTML = data[0].TITLE;
+                document.getElementById("subTitle").innerHTML = data[0].SUBTITLE;
+                document.getElementById("logo").src = data[0].LOGO;
+            }   
+          });  
+  }
+ 
+  //  let role = localStorage.getItem('role');
+  
+  //    if(role === 'Admin' && role != null){
+  //      document.getElementById("deleteOpt").style.display = "block";
+  //    }
+    
+</script>
+</html> 
